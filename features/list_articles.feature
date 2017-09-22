@@ -11,6 +11,7 @@ Feature: List articles on landing page
 
   Scenario: Viewing list of articles on application's landing page
     When I am on the landing page
+    And I click "My Blog"
     Then I should see "A breaking news item"
     And I should see "Some really breaking action"
     And I should see "Learn Rails 5"

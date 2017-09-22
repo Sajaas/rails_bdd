@@ -1,12 +1,2 @@
-Welcome
-
-<ul>
-  <% @articles.each do |article| %>
-      <li>
-        <%= article.title %><br />
-        <%= article.content %>
-      </li>
-  <% end %>
-</ul>
-
-<a href="/articles/new">New Article</a>
+<%= link_to 'My Blog', controller: 'articles' %>
+<%= link_to 'New Article', new_article_path %>
