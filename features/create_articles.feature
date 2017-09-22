@@ -4,8 +4,8 @@ Feature: create articles
   I would like to be able to create articles
 
   Background:
-      Given I visit the "landing" page
-      When I click "New Article" link
+    Given I visit the "landing" page
+    When I click "New Article" link
 
   Scenario: Successfully create an article [Happy Path]
     When I fill in "Title" with "Learning Rails 5"
@@ -20,5 +20,3 @@ Feature: create articles
      When I fill in "Content" with "Excited about learning a new framework"
      And I click "Save Article" button
      Then I should see "Title can't be blank"
-  #
-  # # Write another sad path scenario you can think of
