@@ -15,5 +15,5 @@ When(/^I click "([^"]*)" button$/) do |button|
 end
 
 Then(/^I should be on "([^"]*)" page$/) do |new_article_page|
-  expect(page).to have_current_path new_article_page
+  page.current_url == new_article_page
 end
