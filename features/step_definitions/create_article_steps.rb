@@ -6,8 +6,8 @@ When(/^I click "([^"]*)" link$/) do |link_name|
   click_link_or_button link_name
 end
 
-When(/^I fill in "([^"]*)" with "([^"]*)"$/) do |title, content|
-  fill_in title, with: content
+When(/^I fill in "([^"]*)" with "([^"]*)"$/) do |field, content|
+  fill_in field, with: content
 end
 
 When(/^I click "([^"]*)" button$/) do |button|
