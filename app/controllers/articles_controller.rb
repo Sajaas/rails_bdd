@@ -23,6 +23,7 @@ class ArticlesController < ApplicationController
       flash[:success] = 'Article was successfully created.'
       redirect_to @article
     else
+      flash[:danger] = 'Article was not created.'
       render 'new'
     end
   end
@@ -33,6 +34,7 @@ class ArticlesController < ApplicationController
       flash[:success] = 'Article was successfully updated.'
       redirect_to @article
     else
+      flash[:danger] = 'Article was not updated.'
       render 'edit'
     end
   end
