@@ -23,6 +23,7 @@ Feature: Update articles
 
   Scenario: Blogger doesn't enter a title for the article [Sad Path]
     Given I click "Edit"
-    When I fill in "Content" with "Excited about learning a new framework"
+    And I fill in "Title" with " "
+    And I fill in "Content" with "Excited about learning a new framework"
     And I click "Update Article" button
     Then I should see "Title can't be blank"
