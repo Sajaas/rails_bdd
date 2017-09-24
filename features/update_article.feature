@@ -21,8 +21,8 @@ Feature: Update articles
     And I should see "Learning Rails 5"
     And I should see "Excited about learning a new framework"
 
-#  Scenario: Blogger doesn't enter a title for the article [Sad Path]
-#    Given I click "Edit"
-#    When I fill in "Content" with "Excited about learning a new framework"
-#    And I click "Update Article" button
-#    Then I should see "Title can't be blank"
+  Scenario: Blogger doesn't enter a title for the article [Sad Path]
+    Given I click "Edit"
+    When I fill in "Content" with "Excited about learning a new framework"
+    And I click "Update Article" button
+    Then I should see "Title can't be blank"
