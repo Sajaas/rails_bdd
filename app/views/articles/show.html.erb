@@ -12,7 +12,7 @@ Article was successfully created.
 <% if @article.comments.any? %>
     <h2>Comments</h2>
     <% @article.comments.each do |comment| %>
-      <% unless comment.commenter.empty? %>
+      <% unless comment.commenter.blank? %>
           <p>
           <strong>Commenter:</strong>
           <%= comment.commenter %>
