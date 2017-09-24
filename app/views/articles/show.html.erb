@@ -9,6 +9,32 @@ Article was successfully created.
   <strong>Content:</strong>
   <%= @article.content %>
 </p>
+<h2>Comments</h2>
+<% @article.comments.each do |comment| %>
+    <p>
+      <strong>Commenter:</strong>
+      <%= comment.commenter %>
+    </p>
+
+    <p>
+      <strong>Comment:</strong>
+      <%= comment.body %>
+    </p>
+<% end %>
+<h2>Comment:</h2>
+<%= form_with(model: [ @article, @article.comments.build ], local: true) do |form| %>
+    <p>
+      <%= form.label :Email %><br>
+      <%= form.text_field :commenter, placeholder: 'Email (optional)' %>
+    </p>
+    <p>
+      <%= form.label :Comment %><br>
+      <%= form.text_area :body, placeholder: 'Comment' %>
+    </p>
+    <p>
+      <%= form.submit %>
+    </p>
+<% end %>
 <p>
 <%= link_to 'All Articles', articles_path %>
 </p>

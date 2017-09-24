@@ -12,7 +12,7 @@ Feature: add comments on articles
     And I click "Show"
 
   Scenario: reader can comment on articles
-    Given I click "Comment"
-    And I fill in "Comment" with "Some smart remark"
-    And I click "Send Comment"
+    Given I fill in "Comment" with "Some smart remark"
+    And I fill in "Email (optional)" with "just@email.me"
+    And I click "Create Comment"
     Then I should see "Some smart remark"
