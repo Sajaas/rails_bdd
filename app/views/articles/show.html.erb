@@ -14,7 +14,7 @@ Article was successfully created.
     <% @article.comments.each do |comment| %>
       <% unless comment.commenter.blank? %>
           <p>
-          <strong>Commenter:</strong>
+          <strong>Commenters email:</strong>
           <%= comment.commenter %>
         </p>
       <% end %>
