@@ -9,19 +9,23 @@ Article was successfully created.
   <strong>Content:</strong>
   <%= @article.content %>
 </p>
-<h2>Comments</h2>
-<% @article.comments.each do |comment| %>
-    <p>
-      <strong>Commenter:</strong>
-      <%= comment.commenter %>
-    </p>
-
-    <p>
-      <strong>Comment:</strong>
-      <%= comment.body %>
-    </p>
+<% if @article.comments.any? %>
+    <h2>Comments</h2>
+    <% @article.comments.each do |comment| %>
+      <% unless comment.commenter.empty? %>
+          <p>
+          <strong>Commenter:</strong>
+          <%= comment.commenter %>
+        </p>
+      <% end %>
+      <p>
+        <strong>Comment:</strong>
+        <%= comment.body %>
+      </p>
+      <br>
+  <% end %>
 <% end %>
-<h2>Comment:</h2>
+<h3>Comment on article:</h3>
 <%= form_with(model: [ @article, @article.comments.build ], local: true) do |form| %>
     <p>
       <%= form.label :Email %><br>

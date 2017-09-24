@@ -17,3 +17,8 @@ Feature: add comments on articles
     And I click "Create Comment"
     Then I should see "Some smart remark"
     And I should see "just@email.me"
+
+  Scenario: reader don't fill out the comments field
+    Given I fill in "Email (optional)" with "just@email.me"
+    And I click "Create Comment"
+    And I should see "just@email.me"
