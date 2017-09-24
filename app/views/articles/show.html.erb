@@ -25,8 +25,24 @@ Article was successfully created.
       <br>
   <% end %>
 <% end %>
+
 <h3>Comment on article:</h3>
 <%= form_with(model: [ @article, @article.comments.build ], local: true) do |form| %>
+
+    <% if @article.comments.build.errors.any? %>
+        <div id="error_explanation">
+          <h2>
+            <%= pluralize(@comment.errors.count, 'error') %>
+          </h2>
+          <p>Please address these issues:</p>
+          <ul>
+            <% @comment.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
     <p>
       <%= form.label :Email %><br>
       <%= form.text_field :commenter, placeholder: 'Email (optional)' %>
@@ -39,6 +55,7 @@ Article was successfully created.
       <%= form.submit %>
     </p>
 <% end %>
+
 <p>
 <%= link_to 'All Articles', articles_path %>
 </p>
