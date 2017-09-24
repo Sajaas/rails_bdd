@@ -21,8 +21,9 @@ Feature: add comments on articles
   Scenario: reader don't fill out the comments field
     Given I fill in "Email (optional)" with "just@email.me"
     And I click "Create Comment"
-    Then I should see "Please fill out the comments field"
+    Then I should see "Text can't be blank"
 
   Scenario: reader don't fill out a correct email
-    Given I fill in "Email (optional)" with "just @email.me"
-    Then I should see "Please fill in a correct email"
+    Given I fill in "Email (optional)" with "email.me"
+    And I click "Create Comment"
+    Then I should see "Email is invalid"

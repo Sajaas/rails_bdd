@@ -12,25 +12,24 @@ Article was successfully created.
 <% if @article.comments.any? %>
     <h2>Comments</h2>
     <% @article.comments.each do |comment| %>
-      <% unless comment.commenter.blank? %>
+      <% unless comment.email.blank? %>
           <p>
           <strong>Commenters email:</strong>
-          <%= comment.commenter %>
+          <%= comment.email %>
         </p>
       <% end %>
       <p>
         <strong>Comment:</strong>
-        <%= comment.body %>
+        <%= comment.text %>
       </p>
       <br>
   <% end %>
 <% end %>
 
 <h3>Comment on article:</h3>
-<%= form_with(model: [ @article, @article.comments.build ], local: true) do |form| %>
-
-    <% if @article.comments.build.errors.any? %>
-        <div id="error_explanation">
+<%= form_with(model: [ @article, @comment ], local: true) do |form| %>
+    <% if @comment.errors.any? %>
+        <div id='error_explanation'>
           <h2>
             <%= pluralize(@comment.errors.count, 'error') %>
           </h2>
@@ -45,11 +44,11 @@ Article was successfully created.
 
     <p>
       <%= form.label :Email %><br>
-      <%= form.text_field :commenter, placeholder: 'Email (optional)' %>
+      <%= form.text_field :email, placeholder: 'Email (optional)' %>
     </p>
     <p>
       <%= form.label :Comment %><br>
-      <%= form.text_area :body, placeholder: 'Comment' %>
+      <%= form.text_area :text, placeholder: 'Comment' %>
     </p>
     <p>
       <%= form.submit %>
@@ -61,5 +60,5 @@ Article was successfully created.
 </p>
 <%= link_to 'New Article', new_article_path %>
 <p>
-<%= link_to 'Edit', edit_article_path %>
+<%= link_to 'Edit', edit_article_path(@article) %>
 </p>
