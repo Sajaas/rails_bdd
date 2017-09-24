@@ -1,16 +1,14 @@
-Article was successfully created.
-
 <p>
-  <strong>Title:</strong>
+  <h2><strong>Title:</strong></h2>
   <%= @article.title %>
 </p>
 <p>
-  <strong>Content:</strong>
+  <h2><strong>Content:</strong></h2>
   <%= @article.content %>
 </p>
 
 <% if @article.comments.any? %>
-    <h2>Comments</h2>
+    <h3>Comments</h3>
     <% @article.comments.each do |comment| %>
       <% unless comment.email.blank? %>
           <p>

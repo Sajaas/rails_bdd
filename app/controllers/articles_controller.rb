@@ -20,6 +20,7 @@ class ArticlesController < ApplicationController
   def create
     @article = Article.new(article_params)
     if @article.save
+      flash[:success] = 'Article was successfully created.'
       redirect_to @article
     else
       render 'new'
@@ -29,6 +30,7 @@ class ArticlesController < ApplicationController
   def update
     @article = Article.find(params[:id])
     if @article.update(article_params)
+      flash[:success] = 'Article was successfully updated.'
       redirect_to @article
     else
       render 'edit'
